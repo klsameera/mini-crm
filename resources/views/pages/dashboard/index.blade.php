@@ -5,12 +5,12 @@
     <div class="container-fluid">
         <div class="header-body">
             <div class="col align-items-center py-4">
-                <h6 class="h2 text-dark d-inline-block mb-0">Dashboard</h6>
+                <h6 class="h2 text-dark d-inline-block mb-0">{{ __('dashboard.dashboard') }}</h6>
                 <nav aria-label="breadcrumb" class="d-none d-md-block ">
                     <ol class="breadcrumb breadcrumb-links breadcrumb-dark">
                         <li class="breadcrumb-item"><a href="{{ url('/') }}"><i class="fas fa-home"></i></a></li>
                         <li class="breadcrumb-item active" aria-current="page">
-                            Dashboard
+                            {{ __('dashboard.dashboard') }}
                         </li>
                     </ol>
                 </nav>
@@ -28,7 +28,7 @@
             <div class="card-body">
                 <div class="row">
                     <div class="col">
-                        <h5 class="card-title text-uppercase text-muted mb-0">Total Companies</h5>
+                        <h5 class="card-title text-uppercase text-muted mb-0">{{ __('companies.total_companies') }}</h5>
                         <span class="h2 font-weight-bold mb-0">{{ $company_count }}</span>
                     </div>
                     <div class="col-auto">
@@ -38,8 +38,8 @@
                     </div>
                 </div>
                 <p class="mt-3 mb-0 text-sm">
-                    <a class="text-success mr-2" href="#"><i class="fas fa-arrow-circle-right"></i>
-                        More info</a>
+                    <a class="text-success mr-2" href="{{ route('companies.index') }}"><i class="fas fa-arrow-circle-right"></i>
+                        {{ __('dashboard.more_info') }}</a>
                 </p>
             </div>
         </div>
@@ -50,7 +50,7 @@
             <div class="card-body">
                 <div class="row">
                     <div class="col">
-                        <h5 class="card-title text-uppercase text-muted mb-0">Total Employees</h5>
+                        <h5 class="card-title text-uppercase text-muted mb-0">{{ __('employees.total_employee') }}</h5>
                         <span class="h2 font-weight-bold mb-0">{{ $employee_count }}</span>
                     </div>
                     <div class="col-auto">
@@ -60,8 +60,7 @@
                     </div>
                 </div>
                 <p class="mt-3 mb-0 text-sm">
-                    <a class="text-success mr-2" href="#"><i class="fas fa-arrow-circle-right"></i> More
-                        info</a>
+                    <a class="text-success mr-2" href="{{ route('employees.index') }}"><i class="fas fa-arrow-circle-right"></i> {{ __('dashboard.more_info') }}</a>
                 </p>
             </div>
         </div>

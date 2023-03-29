@@ -6,19 +6,21 @@
         <div class="header-body">
             <div class="row align-items-center py-4">
                 <div class="col-lg-8">
-                    <h6 class="h2 text-dark d-inline-block mb-0">All Employees</h6>
+                    <h6 class="h2 text-dark d-inline-block mb-0">
+                        {{ __('employees.all_employees') }}
+                    </h6>
                     <nav aria-label="breadcrumb" class="d-none d-md-block ">
                         <ol class="breadcrumb breadcrumb-links breadcrumb-dark">
                             <li class="breadcrumb-item"><a href="{{ url('/') }}"><i class="fas fa-home"></i></a></li>
                             <li class="breadcrumb-item active" aria-current="page">
-                                All Employees
+                                {{ __('employees.all_employees') }}
                             </li>
                         </ol>
                     </nav>
                 </div>
                 <div class="col-lg-4 text-right">
                     <a href="{{ route('employees.create') }}" class="btn btn-sm btn-neutral">
-                        <i class="fa fa-plus-circle" aria-hidden="true"></i> Add New
+                        <i class="fa fa-plus-circle" aria-hidden="true"></i> {{ __('employees.add_new') }}
                     </a>
                 </div>
             </div>
@@ -32,12 +34,24 @@
         <table class="table" id="employees" class="dataTables">
             <thead class="thead-light">
                 <th>#</th>
-                <th>First Name</th>
-                <th>Last Name</th>
-                <th>Company</th>
-                <th>Email</th>
-                <th>Phone</th>
-                <th>Action</th>
+                <th>
+                    {{ __('employees.first_name') }}
+                </th>
+                <th>
+                    {{ __('employees.last_name') }}
+                </th>
+                <th>
+                    {{ __('employees.company') }}
+                </th>
+                <th>
+                    {{ __('employees.email') }}
+                </th>
+                <th>
+                    {{ __('employees.phone') }}
+                </th>
+                <th>
+                    {{ __('employees.action') }}
+                </th>
             </thead>
             <tbody>
                 @foreach ($employees as $key=>$employee)
@@ -59,13 +73,13 @@
                                 <a class="dropdown-item edit-product"
                                     href="{{ route('employees.edit', $employee->id) }}" class="btn btn-warning"
                                     title="">
-                                    <i class="fas fa-edit"></i>&nbsp;Edit
+                                    <i class="fas fa-edit"></i>&nbsp; {{ __('employees.edit') }}
                                 </a>
                                 <form action="{{ route('employees.destroy', $employee->id) }}" method="POST">
                                     @csrf
                                     @method('DELETE')
                                     <button type="submit" class="dropdown-item delete-product" title="">
-                                        <i class="fas fa-trash"></i>&nbsp;Delete
+                                        <i class="fas fa-trash"></i>&nbsp; {{ __('employees.delete') }}
                                     </button>
                                 </form>
 

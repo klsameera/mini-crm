@@ -6,19 +6,19 @@
         <div class="header-body">
             <div class="row align-items-center py-4">
                 <div class="col-lg-8">
-                    <h6 class="h2 text-dark d-inline-block mb-0">All Companies</h6>
+                    <h6 class="h2 text-dark d-inline-block mb-0">{{ __('companies.all_companies') }}</h6>
                     <nav aria-label="breadcrumb" class="d-none d-md-block ">
                         <ol class="breadcrumb breadcrumb-links breadcrumb-dark">
                             <li class="breadcrumb-item"><a href="{{ url('/') }}"><i class="fas fa-home"></i></a></li>
                             <li class="breadcrumb-item active" aria-current="page">
-                                All Companies
+                                {{ __('companies.all_companies') }}
                             </li>
                         </ol>
                     </nav>
                 </div>
                 <div class="col-lg-4 text-right">
                     <a href="{{ route('companies.create') }}" class="btn btn-sm btn-neutral">
-                        <i class="fa fa-plus-circle" aria-hidden="true"></i> Add New
+                        <i class="fa fa-plus-circle" aria-hidden="true"></i> {{ __('companies.add_new') }}
                     </a>
                 </div>
             </div>
@@ -32,11 +32,21 @@
         <table class="table" id="companies" class="dataTables">
             <thead class="thead-light">
                 <th>#</th>
-                <th>Name</th>
-                <th>Email</th>
-                <th>Logo</th>
-                <th>Website</th>
-                <th>Manage</th>
+                <th>
+                    {{ __('companies.name') }}
+                </th>
+                <th>
+                    {{ __('companies.email') }}
+                </th>
+                <th>
+                    {{ __('companies.logo') }}
+                </th>
+                <th>
+                    {{ __('companies.website') }}
+                </th>
+                <th>
+                    {{ __('companies.action') }}
+                </th>
             </thead>
             <tbody>
                 @foreach ($companies as $key=>$company)
@@ -59,13 +69,13 @@
                                 <a class="dropdown-item edit-product"
                                     href="{{ route('companies.edit', $company->id) }}" class="btn btn-warning"
                                     title="">
-                                    <i class="fas fa-edit"></i>&nbsp;Edit
+                                    <i class="fas fa-edit"></i>&nbsp; {{ __('companies.edit') }}
                                 </a>
                                 <form action="{{ route('companies.destroy', $company->id) }}" method="POST">
                                     @csrf
                                     @method('DELETE')
                                     <button type="submit" class="dropdown-item delete-product" title="">
-                                        <i class="fas fa-trash"></i>&nbsp;Delete
+                                        <i class="fas fa-trash"></i>&nbsp; {{ __('companies.delete') }}
                                     </button>
                                 </form>
 

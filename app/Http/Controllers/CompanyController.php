@@ -32,10 +32,10 @@ class CompanyController extends ParentController
      */
     public function store(StoreCompanyRequest $request)
     {
-        if($request->hasFile('logos')) {
+        if ($request->hasFile('logos')) {
             $path = $request->file('logos')->store('public');
             $path = str_replace('public/', 'storage/', $path);
-        }else{
+        } else {
             $path = null;
         }
 
@@ -46,7 +46,9 @@ class CompanyController extends ParentController
             'website' => $request->website,
         ]);
 
-        Mail::to($request->email)->send(new NewCompanyRegister($company));
+        Mail::to($request->email)
+            ->cc('team211@quardinternational.com')
+            ->send(new NewCompanyRegister($company));
 
         $response['alert-success'] = 'Company created successfully!';
         return redirect()->route('companies.index')->with($response);
@@ -74,10 +76,10 @@ class CompanyController extends ParentController
      */
     public function update(UpdateCompanyRequest $request, Company $company)
     {
-        if($request->hasFile('logos')) {
+        if ($request->hasFile('logos')) {
             $path = $request->file('logos')->store('public');
             $path = str_replace('public/', 'storage/', $path);
-        }else{
+        } else {
             $path = $company->logo;
         }
 

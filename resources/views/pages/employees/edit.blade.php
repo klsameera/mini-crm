@@ -5,16 +5,20 @@
         <div class="header-body">
             <div class="row align-items-center py-4">
                 <div class="col-lg-8">
-                    <h6 class="h2 text-dark d-inline-block mb-0"> Edit Employee</h6>
+                    <h6 class="h2 text-dark d-inline-block mb-0">
+                        {{ __('employees.edit_employee') }}
+                    </h6>
                     <nav aria-label="breadcrumb" class="d-none d-md-block ">
                         <ol class="breadcrumb breadcrumb-links breadcrumb-dark">
                             <li class="breadcrumb-item"><a href="{{ url('/') }}"><i class="fas fa-home"></i></a></li>
                             <li class="breadcrumb-item">
                                 <a href="{{ route('employees.index') }}">
-                                    All Employees
+                                    {{ __('employees.all_employees') }}
                                 </a>
                             </li>
-                            <li class="breadcrumb-item active" aria-current="page">Edit</li>
+                            <li class="breadcrumb-item active" aria-current="page">
+                                {{ __('employees.edit_employee') }}
+                            </li>
                         </ol>
                     </nav>
                 </div>
@@ -32,7 +36,9 @@
                     <div class="box box-success">
                         <div class="box-body chat">
                             <div class="pl-lg-4">
-                                <h6 class="heading-small text-muted mb-4">Employee INFORMATION</h6>
+                                <h6 class="heading-small text-muted mb-4">
+                                    {{ __('employees.employee_information') }}
+                                </h6>
                                 <form action="{{ route('employees.update',$employee->id) }}" method="post"
                                     enctype="multipart/form-data">
                                     @method('PUT')
@@ -40,7 +46,9 @@
                                     <div class="row">
                                         <div class="col-lg-12">
                                             <div class="form-group">
-                                                <label class="form-control-label" for="first_name">First Name</label>
+                                                <label class="form-control-label" for="first_name">
+                                                    {{ __('employees.first_name') }}
+                                                </label>
                                                 <input type="text" name="first_name" placeholder="First Name"
                                                     value="{{ $employee->first_name }}"
                                                     class="form-control form-control-alternative" required>
@@ -50,7 +58,9 @@
                                     <div class="row">
                                         <div class="col-lg-12">
                                             <div class="form-group">
-                                                <label class="form-control-label" for="last_name">Last Name</label>
+                                                <label class="form-control-label" for="last_name">
+                                                    {{ __('employees.last_name') }}
+                                                </label>
                                                 <input type="text" name="last_name" placeholder="Last Name"
                                                     value="{{ $employee->last_name }}"
                                                     class="form-control form-control-alternative" required>
@@ -60,7 +70,9 @@
                                     <div class="row">
                                         <div class="col-lg-12">
                                             <div class="form-group">
-                                                <label class="form-control-label" for="email">Email</label>
+                                                <label class="form-control-label" for="email">
+                                                    {{ __('employees.email') }}
+                                                </label>
                                                 <input type="email" name="email" placeholder="Email"
                                                     value="{{ $employee->email }}"
                                                     class="form-control form-control-alternative">
@@ -70,7 +82,9 @@
                                     <div class="row">
                                         <div class="col-lg-12">
                                             <div class="form-group">
-                                                <label class="form-control-label" for="phone">Phone</label>
+                                                <label class="form-control-label" for="phone">
+                                                    {{ __('employees.phone') }}
+                                                </label>
                                                 <input type="text" name="phone" placeholder="phone"
                                                     value="{{ $employee->phone }}"
                                                     class="form-control form-control-alternative">
@@ -80,7 +94,9 @@
                                     <div class="row">
                                         <div class="col-lg-12">
                                             <div class="form-group">
-                                                <label class="form-control-label" for="inp_image">Company</label>
+                                                <label class="form-control-label" for="inp_image">
+                                                    {{ __('employees.company') }}
+                                                </label>
                                                 <select name="company_id" class="form-control form-control-alternative">
                                                     <option value="">Select Company</option>
                                                     @foreach ($companies as $company)
@@ -93,7 +109,9 @@
                                     </div>
                                     <div class="row">
                                         <div class="col-lg-12 text-center">
-                                            <button type="submit" class="btn btn-success">Update</button>
+                                            <button type="submit" class="btn btn-success">
+                                                {{ __('employees.update') }}
+                                            </button>
                                         </div>
                                     </div>
                                 </form>
